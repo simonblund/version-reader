@@ -5,7 +5,7 @@ inputs:
   prepend: 
     required: false
     description: 'string that goes before the value'
-    default: '__version__="'
+    default: '__version__ = "'
   
   allow_feature_branches: 
     required: false
