@@ -5,17 +5,17 @@ inputs:
   prepend: 
     required: false
     description: 'string that goes before the value'
-    default: '__version__ = "'
+    default: '__version__='
   
   allow_feature_branches: 
     required: false
     description: 'Wether to fail if feature branch'
-    default: false
+    default: 'false'
   
-  append: 
-    required: false
-    description: 'string that goes after the value'
-    default: '"'
+  # append: 
+  #   required: false
+  #   description: 'string that goes after the value'
+  #   default: ''
 
   filename:
     required: false
