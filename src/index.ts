@@ -25,12 +25,13 @@ async function run(): Promise<void> {
 
 export function findVersionLine(content: string, prepend:string){
     const contentLines = content.replace(/ /g, "").split("\n")
-    console.log(contentLines)
-    const versionline = contentLines.find(line => line.includes(prepend))
+    const prependTrimmed = prepend.replace(/ /g, "")
+    const versionline = contentLines.find(line => line.includes(prependTrimmed))
 
     if(versionline == undefined){
         throw Error("Could not find line that contains: " +prepend)
     }
+
     const trimmed_verionline = versionline
     .replace(" ", "")
     .replace("\t", "")
@@ -38,8 +39,7 @@ export function findVersionLine(content: string, prepend:string){
     .replace(/['"]+/g, '')
     .replace("\\", "")
 
-    console.log(trimmed_verionline)
-    const version = trimmed_verionline.split(prepend)[1]
+    const version = trimmed_verionline.split(prependTrimmed)[1]
     return version
 
     
