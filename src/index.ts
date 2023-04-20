@@ -27,11 +27,15 @@ export function findVersionLine(content: string, prepend:string){
     if(content.length <1){
         throw Error("No file contents: " +content)
     }
-    console.log("content: " +content)
+    core.info("content: " +content)
+    core.info("prepend: " +prepend)
     const contentLines = content.replace(/ /g, "").split("\n")
     const prependTrimmed = prepend.replace(/ /g, "").replace(/['"]+/g, '')
     const versionline = contentLines.find(line => line.includes(prependTrimmed))
 
+    core.info("contentlines: " +JSON.stringify(contentLines))
+    core.info("prependtrimmed: " +prependTrimmed)
+    core.info("versionline: " +versionline)
     if(versionline == undefined){
         throw Error("Could not find line that contains: " +prepend)
     }
