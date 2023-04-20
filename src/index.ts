@@ -37,7 +37,14 @@ export function findVersionLine(content: string, prepend:string){
     core.info("prependtrimmed: " +prependTrimmed)
     core.info("versionline: " +versionline)
     if(versionline == undefined){
-        throw Error("Could not find line that contains: " +prepend)
+        const errorInput = {
+            content: content,
+            prepend: prepend,
+            contentLines: contentLines,
+            prependTrimmed: prependTrimmed,
+            versionline: versionline
+        }
+        throw Error("Could not find line. Input: " +JSON.stringify(errorInput))
     }
 
     const trimmed_verionline = versionline
