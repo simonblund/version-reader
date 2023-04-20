@@ -28,7 +28,7 @@ export function findVersionLine(content: string, prepend:string){
         throw Error("No file contents: " +content)
     }
     const contentLines = content.replace(/ /g, "").split("\n")
-    const prependTrimmed = prepend.replace(/ /g, "")
+    const prependTrimmed = prepend.replace(/ /g, "").replace(/['"]+/g, '')
     const versionline = contentLines.find(line => line.includes(prependTrimmed))
 
     if(versionline == undefined){
